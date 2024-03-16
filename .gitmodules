@@ -1,0 +1,21 @@
+[submodule "philly_utils"]
+	path = philly_utils
+	url = git@github.com:philly12399/philly_utils.git
+[submodule "2023MarkMasterThesis"]
+	path = 2023MarkMasterThesis
+	url = git@github.com:philly12399/2023Markthesis.git
+[submodule "AB3DMOT"]
+	path = AB3DMOT
+	url = git@github.com:philly12399/AB3DMOT.git
+[submodule "3D-Detection-Tracking-Viewer"]
+	path = 3D-Detection-Tracking-Viewer
+	url = git@github.com:philly12399/3D-Detection-Tracking-Viewer.git
+[submodule "4DMOS"]
+	path = 4DMOS
+	url = git@github.com:philly12399/4DMOS.git
+[submodule "semantic-kitti-api"]
+	path = semantic-kitti-api
+	url = git@github.com:philly12399/semantic-kitti-api.git
+[submodule "Point-MAE"]
+	path = Point-MAE
+	url = git@github.com:philly12399/Point-MAE.git
