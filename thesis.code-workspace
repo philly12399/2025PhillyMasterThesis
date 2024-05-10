@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../philly_data"
+		},
+		{
+			"path": "../evaltest"
+		},
+		{
+			"path": "../philly_utils"
+		},
+		{
+			"path": "../kitti-visualizer"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}
