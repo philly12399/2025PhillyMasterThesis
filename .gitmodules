@@ -25,3 +25,6 @@
 [submodule "deprecated/semantic-kitti-api"]
 	path = deprecated/semantic-kitti-api
 	url = git@github.com:philly12399/semantic-kitti-api.git
+[submodule "3D-Multi-Object-Tracker"]
+	path = 3D-Multi-Object-Tracker
+	url = git@github.com:philly12399/3D-Multi-Object-Tracker.git
