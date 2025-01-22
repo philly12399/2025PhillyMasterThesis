@@ -10,21 +10,9 @@
 [submodule "3D-Detection-Tracking-Viewer"]
 	path = 3D-Detection-Tracking-Viewer
 	url = git@github.com:philly12399/3D-Detection-Tracking-Viewer.git
-[submodule "4DMOS"]
-	path = deprecated/4DMOS
-	url = git@github.com:philly12399/4DMOS.git
-[submodule "semantic-kitti-api"]
-	path = deprecated/semantic-kitti-api
-	url = git@github.com:philly12399/semantic-kitti-api.git
 [submodule "Point-MAE"]
 	path = Point-MAE
 	url = git@github.com:philly12399/Point-MAE.git
-[submodule "deprecated/4DMOS"]
-	path = deprecated/4DMOS
-	url = git@github.com:philly12399/4DMOS.git
-[submodule "deprecated/semantic-kitti-api"]
-	path = deprecated/semantic-kitti-api
-	url = git@github.com:philly12399/semantic-kitti-api.git
 [submodule "3D-Multi-Object-Tracker"]
 	path = 3D-Multi-Object-Tracker
 	url = git@github.com:philly12399/3D-Multi-Object-Tracker.git
