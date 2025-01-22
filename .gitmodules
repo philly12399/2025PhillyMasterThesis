@@ -13,3 +13,6 @@
 [submodule "3D-Multi-Object-Tracker"]
 	path = 3D-Multi-Object-Tracker
 	url = git@github.com:philly12399/3D-Multi-Object-Tracker.git
+[submodule "Anti_Occlusion_Tracker"]
+	path = Anti_Occlusion_Tracker
+	url = git@github.com:philly12399/Anti_Occlusion_Tracker.git
