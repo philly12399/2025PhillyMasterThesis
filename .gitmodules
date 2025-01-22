@@ -4,9 +4,6 @@
 [submodule "2023MarkMasterThesis"]
 	path = 2023MarkMasterThesis
 	url = git@github.com:philly12399/2023Markthesis.git
-[submodule "AB3DMOT"]
-	path = AB3DMOT
-	url = git@github.com:philly12399/AB3DMOT.git
 [submodule "3D-Detection-Tracking-Viewer"]
 	path = 3D-Detection-Tracking-Viewer
 	url = git@github.com:philly12399/3D-Detection-Tracking-Viewer.git
