@@ -1,8 +1,3 @@
----
-title: docker
-
----
-
 # Thesis ReadME Docker
 ## Data & Procedure
 **Data**
