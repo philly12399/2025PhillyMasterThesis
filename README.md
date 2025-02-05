@@ -298,5 +298,5 @@ P1 params combination: (`/thesis/philly_utils/utils/create_gt_db_kitti.py`)
     A3: `-l ../data/KITTI_tracking/training/merged_det/mpoint_rcnn`
 NOTE: A3 should change `CLASS_FILTER` to `['car']`
 
-NOTE: you should change or delete this section if you use other dataset ![image](https://hackmd.io/_uploads/r1otA1xtyl.png =80%x)
+NOTE: you should change or delete this section if you use other dataset ![image](https://hackmd.io/_uploads/r1otA1xtyl.png)
 
