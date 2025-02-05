@@ -1,4 +1,15 @@
-# Thesis ReadME Docker
+# ReadME
+## Repo Structure
+2025PhillyMasterThesis
+
+├── Anti_Occlusion_Tracker (Tracking)
+
+├── philly_utils (Utils like file conversion)
+
+├── Point-MAE (Point cloud reconstruct)
+
+├── 3D-Detection-Tracking-Viewer (Track visualizer)
+
 ## Data & Procedure
 **Data**
 * D1. Pointcloud pcd (kitti format) 
@@ -20,7 +31,7 @@
 * P6. Evaluation,`Anti_Occlusion_Tracker/scripts/KITTI/evaluate.py` D6+D7->D8
 * P7. Tracking Visualizer,`3D-Detection-Tracking-Viewer/tracking_viewer.py` D1+bbox label(D2/D6/D7)->visualize
 
-## Installation
+## Installation (Docker)
 ### Repos
 ```
 mkdir thesis
@@ -33,16 +44,25 @@ git clone git@github.com:philly12399/3D-Detection-Tracking-Viewer.git
 get ${thesis_dir}
 ### Data
 ${data_dir}: `nas/archive/MasterThesis/2025/philly/data`
+
 `data/KITTI_tracking/training/velodyne`(D1): 20 kitti sequences (0~20) + 1 Wayside pingtung sequence (0021)
+
 `data/KITTI_tracking/training/gt_det_set_seq`(D2): gtdet, 4 difficulty
+
 `data/KITTI_tracking/training/merged_det`(D2): real detections
 
 `data/point_mae/gt_db`(D3): output dir of P1, input dir of P2
+
 `data/point_mae/dense_db`(D4): output dir of P2, input dir of P3
+
 `data/AOT/NDT_pkl`(D5): output dir of P3, input dir of P4
+
 `data/AOT/track_exp`(D6): output dir of P4, input dir of P5 or P6 
+
 `data/AOT/track_exp`(D6*): output dir of P5, input dir of P6 
+
 `data/KITTI_tracking/training/label_02`(D7): input dir of P6 
+
 `data/AOT/track_exp`(D8): output dir of P6
 
 ### Docker
@@ -92,25 +112,34 @@ NOTE: P4 read detections from `thesis/Anti_Occlusion_Tracker/data/KITTI/detectio
 ## Configs
 ### P1
 `philly_utils/utils/create_gt_db_kitti.py`
+
 args:
+
 -k  "kitti data path"
+
 -l  "label path"
+
 -o  "output path"
+
 COMBINATION=A1/A2/A3 (quick setting for [EXP](https://hackmd.io/sLvCpKfdQOKPOb_JWleWUA?both=&stext=9643%3A22%3A0%3A1738697866%3A7wbAlo))
 
 ![image](https://hackmd.io/_uploads/r134nJltyl.png)
 
 OCC_FILTER=[-1,0,1,2,3] 
-CLASS_FILTER=['car','cyclist']
 
+CLASS_FILTER=['car','cyclist']
 
 ### P2
 config dirs:
+
 `Point-MAE/cfgs/`
+
 `Point-MAE/cfgs/dataset_configs/`
 
 config explanation:
+
 `Point-MAE/cfgs/pretrain_demo.yaml`
+
 ```
 optimizer : {
   type: AdamW,
@@ -175,9 +204,13 @@ SEQ: ['0021'] #list of sequence id you want to run
 ```
 ### P3
 config dirs:
+
 `Anti_Occlusion_Tracker/configs/NDT/`
+
 config explanation:
+
 `Anti_Occlusion_Tracker/configs/NDT/NDT_precalculate_demo.yml`
+
 ```
 ##ONLY FOR NDT PREPROCESS
 # ------------------- General Options -------------------------
@@ -200,9 +233,13 @@ seq_eval                     : [21]  #list of sequence id you want to run
 ```
 ### P4
 config dirs:
+
 `Anti_Occlusion_Tracker/configs/`
+
 config explanation:
+
 `Anti_Occlusion_Tracker/configs/KITTI_demo.yml`
+
 ```
 ##TRACKING CONFIG
 # ------------------- General Options -------------------------
@@ -244,15 +281,22 @@ stage2_param                : {'car':{'algm': 'hungar', 'metric': 'dist_3d', 'th
 NOTE: P4 read detections from `thesis/Anti_Occlusion_Tracker/data/KITTI/detection/{det_name}`
 ### P5
 `Anti_Occlusion_Tracker/scripts/post_processing/trk_conf_threshold.py`
+
 args: 
+
 -e "dir of tracking exp result without post processing"
+
 Confidence threshold:` thres_dict={'Car':3.240738, 'Cyclist':3.645319} `
 
 ### P6
 config dirs:
+
 `Anti_Occlusion_Tracker/configs/eval/`
+
 config explanation:
+
 `Anti_Occlusion_Tracker/configs/eval/KITTI_demo.yml`
+
 ```
 ##EVALUATION CONFIG
 # ------------------- Dataset Name -------------------------
@@ -277,8 +321,11 @@ fov_filter                   : False
 ```
 ### P7
 `3D-Detection-Tracking-Viewer/tracking_viewer.py`
+
 args: 
+
 -b (Kitti/Philly) Kitti or Philly coordinate
+
 wayside label is under Philly coordinate
 
 ## Experiment-combination
@@ -290,12 +337,15 @@ wayside label is under Philly coordinate
 | det x kitti car     | A3    |pretrain_test_on_kitti_det.yaml     | NDT_precalculate_det.yml    | KITTI_det_car.yml     | V | KITTI_det_car.yml    |
 
 P1 params combination: (`/thesis/philly_utils/utils/create_gt_db_kitti.py`)
+
 1.
 ![image](https://hackmd.io/_uploads/HJK8A1xFke.png)
 
 2.
     A1,A2:` -l ../data/KITTI_tracking/training/gt_det_set_seq/diff3 `
+  
     A3: `-l ../data/KITTI_tracking/training/merged_det/mpoint_rcnn`
+  
 NOTE: A3 should change `CLASS_FILTER` to `['car']`
 
 NOTE: you should change or delete this section if you use other dataset ![image](https://hackmd.io/_uploads/r1otA1xtyl.png)
